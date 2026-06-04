@@ -1,0 +1,136 @@
+@import '../nice-branding/variables.scss';
+
+.leaderboard {
+  background-color: $white;
+  border: 1px solid $border-light;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-sm;
+
+  &.live {
+    animation: pulse 2s ease-in-out infinite;
+  }
+}
+
+.leaderboard-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: $spacing-lg;
+  color: $text-primary;
+}
+
+.leaderboard-content {
+  min-height: 200px;
+}
+
+.leaderboard-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: $text-tertiary;
+}
+
+.leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.leaderboard-entry {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  background-color: $bg-secondary;
+  border-radius: $radius-md;
+  transition: all $transition-fast;
+
+  &:hover {
+    background-color: $surface-hover;
+    transform: translateX(4px);
+  }
+
+  &.rank-1 {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.05));
+    border-left: 4px solid $warning-color;
+  }
+
+  &.rank-2 {
+    background: linear-gradient(135deg, rgba(209, 213, 219, 0.2), rgba(209, 213, 219, 0.05));
+    border-left: 4px solid $gray-300;
+  }
+
+  &.rank-3 {
+    background: linear-gradient(135deg, rgba(167, 139, 250, 0.1), rgba(167, 139, 250, 0.05));
+    border-left: 4px solid $secondary-light;
+  }
+}
+
+.entry-rank {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  min-width: 50px;
+}
+
+.rank-number {
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: $text-primary;
+  width: 30px;
+  text-align: center;
+}
+
+.rank-medal {
+  font-size: 1.5rem;
+}
+
+.entry-info {
+  flex: 1;
+}
+
+.entry-name {
+  font-weight: 600;
+  color: $text-primary;
+  font-size: 0.95rem;
+  margin-bottom: $spacing-xs;
+}
+
+.entry-stats {
+  font-size: 0.85rem;
+  color: $text-tertiary;
+}
+
+.entry-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-xs;
+  background: linear-gradient(135deg, $primary-color, $secondary-color);
+  color: $white;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $radius-md;
+  min-width: 70px;
+}
+
+.score-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.score-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    box-shadow: $shadow-sm;
+  }
+  50% {
+    box-shadow: $shadow-md;
+  }
+}
