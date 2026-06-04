@@ -1,3 +1,6 @@
+# Frontend Project Structure
+
+```
 frontend/
 ├── public/
 │   ├── index.html
@@ -126,7 +129,6 @@ frontend/
 │   ├── App.scss
 │   └── index.tsx
 │
-├── public/
 ├── .env.example
 ├── .eslintrc.json
 ├── .prettierrc
