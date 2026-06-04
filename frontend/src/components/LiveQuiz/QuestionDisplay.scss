@@ -1,0 +1,182 @@
+@import '../nice-branding/variables.scss';
+
+.question-display {
+  background-color: $white;
+  border-radius: $radius-lg;
+  padding: $spacing-xl;
+  box-shadow: $shadow-md;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-lg;
+  padding-bottom: $spacing-md;
+  border-bottom: 1px solid $border-light;
+}
+
+.question-counter {
+  font-size: 0.95rem;
+  color: $text-secondary;
+  font-weight: 500;
+}
+
+.question-timer {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: $primary-color;
+  padding: $spacing-sm $spacing-md;
+  background-color: rgba(37, 99, 235, 0.1);
+  border-radius: $radius-md;
+  transition: all $transition-fast;
+
+  &.warning {
+    color: $error-color;
+    background-color: rgba(239, 68, 68, 0.1);
+    animation: pulse-warning 1s ease-in-out infinite;
+  }
+}
+
+@keyframes pulse-warning {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.question-progress-bar {
+  width: 100%;
+  height: 4px;
+  background-color: $bg-secondary;
+  border-radius: $radius-full;
+  overflow: hidden;
+  margin-bottom: $spacing-lg;
+}
+
+.progress-fill {
+  height: 100%;
+  transition: width 0.1s linear;
+  border-radius: $radius-full;
+}
+
+.question-content {
+  margin-bottom: $spacing-xl;
+}
+
+.question-text {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: $text-primary;
+  margin-bottom: $spacing-lg;
+  line-height: 1.4;
+}
+
+.question-image {
+  margin: $spacing-lg 0;
+  text-align: center;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-md;
+  }
+}
+
+.question-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $spacing-md;
+}
+
+.option-btn {
+  position: relative;
+  padding: $spacing-lg;
+  background-color: $white;
+  border: 2px solid $border-light;
+  border-radius: $radius-lg;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all $transition-fast;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &:hover:not(:disabled) {
+    border-color: $primary-color;
+    background-color: rgba(37, 99, 235, 0.05);
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  &.selected {
+    background-color: rgba(37, 99, 235, 0.1);
+    border-color: $primary-color;
+    font-weight: 500;
+  }
+}
+
+.option-text {
+  flex: 1;
+}
+
+.option-check {
+  font-size: 1.5rem;
+  color: $success-color;
+  margin-left: $spacing-md;
+  animation: checkIn 0.3s ease-out;
+}
+
+@keyframes checkIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .question-display {
+    padding: $spacing-lg;
+  }
+
+  .question-text {
+    font-size: 1.5rem;
+  }
+
+  .question-header {
+    flex-direction: column;
+    gap: $spacing-sm;
+    align-items: flex-start;
+  }
+
+  .question-options {
+    grid-template-columns: 1fr;
+  }
+}
